@@ -22,6 +22,11 @@ function ajax(method, url, data, success, error) {
   xhr.send(data);
 }
 
+function toggleNav() {
+  $('.navbar__toggler').toggleClass('change');
+  $('.nav-items').stop(true).slideToggle(300);
+}
+
 $(document).ready(function () {
   new WOW().init();
 
@@ -32,14 +37,17 @@ $(document).ready(function () {
   var alert = $('#alert');
 
   // Navbar Toggler
-  $('.navbar__toggler').click(function () {
-    $(this).toggleClass('change');
-    $('.nav-items').stop(true).slideToggle(300);
-  });
+  $('.navbar__toggler').click(toggleNav);
 
   //Scroll Event
   var scrollLink = $('.scroll');
   scrollLink.click(function (e) {
+
+    if ($(window).width() < 950) {
+      $('.navbar__toggler').toggleClass('change');
+      $('.nav-items').stop(true).slideToggle(300);
+    }
+
     e.preventDefault();
     $('body,html').animate(
       {
