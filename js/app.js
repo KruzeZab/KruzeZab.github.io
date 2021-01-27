@@ -67,7 +67,7 @@ $(document).ready(function () {
       data,
       function () {
         form.reset();
-        status.innerHTML = 'Email Sent Successfully !';
+        status.innerHTML = 'Thanks for getting in touch!';
 
         alert.css('background-color', 'green');
 
@@ -80,7 +80,7 @@ $(document).ready(function () {
       function () {
         alert.css('background-color', 'red');
         status.innerHTML =
-          'There was a problem sending email. Please try again!';
+          'There was a problem trying to connect. Please try again!';
       }
     );
   });
